@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../service'
-require 'spec'
+require 'rspec'
 require 'spec/interop/test'
-require 'rack/test'
+require 'ack/test'
 
 set :environment, :test
 Test::Unit::TestCase.send :include, Rack::Test::Methods
@@ -15,10 +15,10 @@ describe "service" do
   describe "GET on /api/v1/users/:id" do
     before(:each) do
       User.create(
-        :name     => "paul",
-        :email    => "paul@pauldix.net",
-        :password => "strongpass",
-        :bio      => "rubyist"
+        name: "paul",
+        email: "paul@pauldix.net",
+        password: "strongpass",
+        bio: "rubyist"
       )
     end
     it "should return a user by name" do
